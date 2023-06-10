@@ -1,3 +1,19 @@
+# To convert a folder of books with cyrillic filenames
+
+1. execute `cyrlat.py` in folder with books
+2. replace spaces with underscores (optional)
+
+```shell
+for file in *; do echo mv "$file" "$(echo $file | sed 's/ - /_/g ; s/ /-/g')" ; done
+```
+
+# Batch convert of the whole folder
+
+```shell
+for file in *.fb2; do ./convert-ebook "$file" "epub"; done
+```
+
+
 # ebook-convert
 A docker image that converts ebook formats using Calibre ebook-convert.
 
@@ -25,6 +41,3 @@ Example:
 ```shell script
 convert-ebook ~/my-ebook.epub mobi
 ```
-
-
-
